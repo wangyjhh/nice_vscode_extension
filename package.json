@@ -2,6 +2,7 @@
 	"name": "translation-vscode-extension",
 	"displayName": "translation_vscode_extension",
 	"description": "my first vscode extension",
+	"publisher": "wyj",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.74.0"
@@ -10,19 +11,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:translation-vscode-extension.helloWorld"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "translation",
-				"title": "translate"
+				"command": "wyj.translationCommand",
+				"title": "Translate"
 			}
 		],
 		"keybindings": [
 			{
-				"command": "translation",
+				"command": "wyj.translationCommand",
 				"key": "alt+w",
 				"mac": "alt+w"
 			}
