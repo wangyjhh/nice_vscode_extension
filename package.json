@@ -2,8 +2,9 @@
 	"name": "translation-vscode-extension",
 	"displayName": "translation_vscode_extension",
 	"description": "my first vscode extension",
-	"publisher": "wyj",
+	"publisher": "wangyjhh",
 	"version": "0.0.1",
+	"icon": "resource/icon.png",
 	"engines": {
 		"vscode": "^1.74.0"
 	},
