@@ -36,8 +36,10 @@ export function activate(context: vscode.ExtensionContext) {
 			vscode.window.showErrorMessage("转换大写字母失败")
 			return
 		}
-		editor.document.getText(editor.selection)
-		editor.document
+
+		editor.edit((editBuilder) => {
+			editBuilder.replace(editor.selection, upperCaseResult)
+		})
 	})
 }
 
