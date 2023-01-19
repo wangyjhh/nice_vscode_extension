@@ -1,9 +1,10 @@
-# Change Log
+# 更新日志
 
-All notable changes to the "translation-vscode-extension" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## 0.0.1 （2023-1-16）
+* 发布测试版本
+* 提供翻译选中文本功能
+## 0.0.2 （2023-1-16）
+* 添加仓库信息及插件图标
+## 0.0.3  (2023-1-19)
+* 修改项目名,改为nice_vscode_extension
+* 添加小写字母转大写功能
