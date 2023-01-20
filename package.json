@@ -3,7 +3,7 @@
 	"displayName": "nice_vscode_extension",
 	"description": "my first vscode extension",
 	"publisher": "wangyjhh",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"icon": "resource/icon.png",
 	"repository": {
 		"url": "https://gitee.com/DVN/translation_vscode_extension.git"
@@ -27,6 +27,10 @@
 			{
 				"command": "wyj.toUpperCaseCommand",
 				"title": "ToUpperCase"
+			},
+			{
+				"command": "wyj.theFirstLetterReverseCommand",
+				"title": "ToUpperCase"
 			}
 		],
 		"keybindings": [
@@ -36,7 +40,12 @@
 				"mac": "alt+w"
 			},
 			{
-				"command": "wyj.toUpperCaseCommand",
+				"command": "wyj.toUpperOrLowerCaseCommand",
+				"key": "alt+a",
+				"mac": "alt+a"
+			},
+			{
+				"command": "wyj.theFirstLetterReverseCommand",
 				"key": "alt+q",
 				"mac": "alt+q"
 			}
