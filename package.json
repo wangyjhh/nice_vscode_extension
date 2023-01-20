@@ -25,12 +25,12 @@
 				"title": "Translate"
 			},
 			{
-				"command": "wyj.toUpperCaseCommand",
-				"title": "ToUpperCase"
+				"command": "wyj.toUpperOrLowerCaseCommand",
+				"title": "ToUpperOrLowerCase"
 			},
 			{
 				"command": "wyj.theFirstLetterReverseCommand",
-				"title": "ToUpperCase"
+				"title": "TheFirstLetterReverse"
 			}
 		],
 		"keybindings": [
