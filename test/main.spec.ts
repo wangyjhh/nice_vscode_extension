@@ -1,6 +1,6 @@
 import { test, expect } from "vitest"
 import { translate } from "../src/utils/translate/translate"
-import { theFirstLetterReverse } from "../src/utils/string/string"
+import { theFirstLetterReverse, isString } from "../src/utils/string/string"
 
 test("init", () => {
 	expect(true).toBe(true)
@@ -31,4 +31,9 @@ test("theFirstLetterReverse", async () => {
 	const text: string = "hello"
 	const newText = theFirstLetterReverse(text)
 	expect(newText).toBe("Hello")
+})
+
+test("textIsString", async () => {
+	const text: any = "hello"
+	expect(isString(text)).toBe(true)
 })

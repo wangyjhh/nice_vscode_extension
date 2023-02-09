@@ -18,3 +18,8 @@ export const theFirstLetterReverse = (text: string): string => {
 export const isUpperCase = (text: string): boolean => {
 	return text === text.toLocaleUpperCase()
 }
+
+// 判断是否为字符串
+export const isString = (text: any): boolean => {
+	return typeof text === "string"
+}
