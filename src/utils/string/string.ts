@@ -23,3 +23,14 @@ export const isUpperCase = (text: string): boolean => {
 export const isString = (text: any): boolean => {
 	return typeof text === "string"
 }
+
+// JSON.stringify和JSON.parse转换
+export const jsonHandle = (text: any) => {
+	let res
+	if (isString(text)) {
+		res = JSON.parse(text)
+	} else {
+		res = JSON.stringify(text)
+	}	
+	return res
+}

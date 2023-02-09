@@ -1,6 +1,6 @@
 import { test, expect } from "vitest"
 import { translate } from "../src/utils/translate/translate"
-import { theFirstLetterReverse, isString } from "../src/utils/string/string"
+import { theFirstLetterReverse, isString, jsonHandle } from "../src/utils/string/string"
 
 test("init", () => {
 	expect(true).toBe(true)
@@ -36,4 +36,13 @@ test("theFirstLetterReverse", async () => {
 test("textIsString", async () => {
 	const text: any = "hello"
 	expect(isString(text)).toBe(true)
+})
+
+test("jsonHandle", async () => {
+	const text: any = `{"name":"wyj"}`
+	const res = jsonHandle(text)
+	console.log(res)
+
+	// expect(res).toBe(`{"name":"wyj"}`)
+	expect(res).toStrictEqual({ name: "wyj" })
 })

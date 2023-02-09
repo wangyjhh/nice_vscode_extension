@@ -1,6 +1,6 @@
 import { ExtensionContext, commands, window } from "vscode"
 import { translate } from "./utils/translate/translate.js"
-import { theFirstLetterReverse, isUpperCase } from "./utils/string/string.js"
+import { theFirstLetterReverse, isUpperCase, jsonHandle } from "./utils/string/string.js"
 
 export function activate(context: ExtensionContext) {
 	let translateCommand = commands.registerCommand("wyj.translationCommand", async () => {
@@ -64,8 +64,8 @@ export function activate(context: ExtensionContext) {
 			editBuilder.replace(editor.selection, result)
 		})
 	})
-	JSON.stringify
-	let jsonStringifyCommand = commands.registerCommand("wyj.jsonStringifyCommand", async () => {
+
+	let jsonHandleCommand = commands.registerCommand("wyj.jsonStringifyCommand", async () => {
 		const editor = window.activeTextEditor
 		if (!editor) {
 			return
@@ -76,9 +76,11 @@ export function activate(context: ExtensionContext) {
 			return
 		}
 
-		const result = theFirstLetterReverse(selectionText)
-		if (!result) {
-			window.showErrorMessage("首字母转换大小写失败")
+		let result: any
+		try {
+			result = jsonHandle(selectionText)
+		} catch (error) {
+			window.showErrorMessage(`${error}`)
 			return
 		}
 
