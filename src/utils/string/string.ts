@@ -1,3 +1,6 @@
+import { parse } from "@babel/parser"
+import traverse from "@babel/traverse"
+
 // 判断首字母是否为大写
 export const theFirstLetterIsUpperCase = (text: string): boolean => {
 	return text[0] === text[0].toLocaleUpperCase()
@@ -19,18 +22,35 @@ export const isUpperCase = (text: string): boolean => {
 	return text === text.toLocaleUpperCase()
 }
 
-// 判断是否为字符串
-export const isString = (text: any): boolean => {
-	return typeof text === "string"
-}
+// 获取当前光标所在对象ast中对象所有key的位置及name
+export const getDocAstObjectKeyInfo = (code: string, index: number) => {
+	let obj: any
 
-// JSON.stringify和JSON.parse转换
-export const jsonHandle = (text: any) => {
-	let res
-	if (isString(text)) {
-		res = JSON.parse(text)
-	} else {
-		res = JSON.stringify(text)
-	}	
-	return res
+	const ast = parse(code)
+
+	traverse(ast, {
+		ObjectExpression(path) {
+			if (index >= path.node.start! && index <= path.node.end!) {
+				obj = path.node
+			}
+		},
+	})
+
+	let objArr: any[] = []
+	obj.properties.forEach((i: any) => {
+		objArr.push({
+			start: {
+				line: i.key.loc.start.line,
+				column: i.key.loc.start.column,
+				index: i.key.loc.start.index,
+			},
+			end: {
+				line: i.key.loc.end.line,
+				column: i.key.loc.end.column,
+				index: i.key.loc.end.index,
+			},
+			key: i.key.loc.identifierName,
+		})
+	})
+	return objArr
 }

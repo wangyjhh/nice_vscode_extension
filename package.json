@@ -31,6 +31,10 @@
 			{
 				"command": "wyj.theFirstLetterReverseCommand",
 				"title": "TheFirstLetterReverse"
+			},
+			{
+				"command": "wyj.jsonStringifyCommand",
+				"title": "TheFirstLetterReverse"
 			}
 		],
 		"keybindings": [
@@ -48,6 +52,11 @@
 				"command": "wyj.theFirstLetterReverseCommand",
 				"key": "alt+q",
 				"mac": "alt+q"
+			},
+			{
+				"command": "wyj.jsonStringifyCommand",
+				"key": "alt+j",
+				"mac": "alt+j"
 			}
 		]
 	},
@@ -60,6 +69,7 @@
 		"test": "vitest --run"
 	},
 	"devDependencies": {
+		"@types/babel__traverse": "^7.18.3",
 		"@types/glob": "^8.0.0",
 		"@types/mocha": "^10.0.1",
 		"@types/node": "16.x",
@@ -71,9 +81,11 @@
 		"glob": "^8.0.3",
 		"mocha": "^10.1.0",
 		"typescript": "^4.9.3",
-		"vitest": "^0.27.1"
+		"vitest": "^0.24.1"
 	},
 	"dependencies": {
+		"@babel/parser": "^7.20.15",
+		"@babel/traverse": "^7.20.13",
 		"axios": "^1.2.2"
 	}
 }

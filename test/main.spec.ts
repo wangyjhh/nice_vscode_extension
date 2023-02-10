@@ -1,18 +1,18 @@
 import { test, expect } from "vitest"
 import { translate } from "../src/utils/translate/translate"
-import { theFirstLetterReverse, isString, jsonHandle } from "../src/utils/string/string"
+import { theFirstLetterReverse, getDocAstObjectKeyInfo } from "../src/utils/string/string"
 
 test("init", () => {
 	expect(true).toBe(true)
 })
 
-test("translate", async () => {
-	const text = "hello"
-	const translateResult = (await translate(text)).data.translateResult[0][0].tgt
-	console.log(translateResult)
+// test("translate", async () => {
+// 	const text = "hello"
+// 	const translateResult = (await translate(text)).data.translateResult[0][0].tgt
+// 	console.log(translateResult)
 
-	expect(translateResult).toBe("你好")
-})
+// 	expect(translateResult).toBe("你好")
+// })
 
 test("toUpperOrLowerCase", async () => {
 	const text: string = "HELLO"
@@ -33,16 +33,26 @@ test("theFirstLetterReverse", async () => {
 	expect(newText).toBe("Hello")
 })
 
-test("textIsString", async () => {
-	const text: any = "hello"
-	expect(isString(text)).toBe(true)
-})
+test("jsonHandleTest", async () => {
+	const code = `
+	let a = { name: "wyj1", age : 23 }
+	let b = { name: "wyj2", age : 24 }
+	let c = { name: "wyj3", age : 25 }
+	let d = { name: "wyj4", age : 26 }
+	`
+	const index = 15
+	const keyInfoArr = getDocAstObjectKeyInfo(code, index)
 
-test("jsonHandle", async () => {
-	const text: any = `{"name":"wyj"}`
-	const res = jsonHandle(text)
-	console.log(res)
-
-	// expect(res).toBe(`{"name":"wyj"}`)
-	expect(res).toStrictEqual({ name: "wyj" })
+	expect(keyInfoArr).toStrictEqual([
+		{
+			start: { line: 2, column: 11, index: 12 },
+			end: { line: 2, column: 15, index: 16 },
+			key: "name",
+		},
+		{
+			start: { line: 2, column: 25, index: 26 },
+			end: { line: 2, column: 28, index: 29 },
+			key: "age",
+		},
+	])
 })

@@ -1,6 +1,6 @@
-import { ExtensionContext, commands, window } from "vscode"
+import { ExtensionContext, commands, window, Range, Position } from "vscode"
 import { translate } from "./utils/translate/translate.js"
-import { theFirstLetterReverse, isUpperCase, jsonHandle } from "./utils/string/string.js"
+import { theFirstLetterReverse, isUpperCase, getDocAstObjectKeyInfo } from "./utils/string/string.js"
 
 export function activate(context: ExtensionContext) {
 	let translateCommand = commands.registerCommand("wyj.translationCommand", async () => {
@@ -70,22 +70,21 @@ export function activate(context: ExtensionContext) {
 		if (!editor) {
 			return
 		}
-		const selectionText = editor.document.getText(editor.selection)
-		if (!selectionText) {
-			window.showWarningMessage("请先选择文本后在执行该命令！")
-			return
-		}
 
-		let result: any
-		try {
-			result = jsonHandle(selectionText)
-		} catch (error) {
-			window.showErrorMessage(`${error}`)
-			return
-		}
+		let curPos = editor.selection.active
+		let offset = editor.document.offsetAt(curPos)
+		let result: any = getDocAstObjectKeyInfo(editor.document.getText(), offset)
 
 		editor.edit((editBuilder) => {
-			editBuilder.replace(editor.selection, result)
+			if (!result) {
+				return
+			}
+			result.forEach((i: any) => {
+				editBuilder.replace(
+					new Range(new Position(i.start.line - 1, i.start.column), new Position(i.end.line - 1, i.end.column)),
+					`"${i.key}"`
+				)
+			})
 		})
 	})
 }
