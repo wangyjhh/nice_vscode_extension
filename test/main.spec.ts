@@ -6,13 +6,13 @@ test("init", () => {
 	expect(true).toBe(true)
 })
 
-// test("translate", async () => {
-// 	const text = "hello"
-// 	const translateResult = (await translate(text)).data.translateResult[0][0].tgt
-// 	console.log(translateResult)
+test("translate", async () => {
+	const text = "hello"
+	const translateResult = (await translate(text)).data.translateResult[0][0].tgt
+	console.log(translateResult)
 
-// 	expect(translateResult).toBe("你好")
-// })
+	expect(translateResult).toBe("你好")
+})
 
 test("toUpperOrLowerCase", async () => {
 	const text: string = "HELLO"

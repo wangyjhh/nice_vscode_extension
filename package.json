@@ -14,10 +14,8 @@
 	"categories": [
 		"Other"
 	],
-	"activationEvents": [
-		"*"
-	],
 	"main": "./out/extension.js",
+	"activationEvents": [],
 	"contributes": {
 		"commands": [
 			{
@@ -35,6 +33,10 @@
 			{
 				"command": "wyj.jsonStringifyCommand",
 				"title": "TheFirstLetterReverse"
+			},
+			{
+				"command": "wyj.createTargetFileCommand",
+				"title": "新建文件(wyj)"
 			}
 		],
 		"keybindings": [
@@ -58,7 +60,52 @@
 				"key": "alt+j",
 				"mac": "alt+j"
 			}
-		]
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "wyj.createTargetFileCommand",
+					"alt": "新建目标语言文件",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Nice Vscode Extension",
+			"properties": {
+				"nice_vscode_extension.扩展名": {
+					"type": "string",
+					"default": "ts",
+					"enum": [
+						"js",
+						"ts",
+						"vue"
+					],
+					"enumDescriptions": [
+						"新增.js文件",
+						"新增.ts文件",
+						"新增.vue文件"
+					]
+				},
+				"nice_vscode_extension.模式": {
+					"type": "string",
+					"description": "当此选项为自定义时，默认扩展名方案无效，请配置自定义扩展名",
+					"default": "默认",
+					"enum": [
+						"默认",
+						"自定义"
+					],
+					"enumDescriptions": [
+						"使用扩展自带扩展名方案",
+						"使用自定义扩展名"
+					]
+				},
+				"nice_vscode_extension.自定义扩展名": {
+					"type": "string",
+					"default": ""
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "pnpm run compile",
