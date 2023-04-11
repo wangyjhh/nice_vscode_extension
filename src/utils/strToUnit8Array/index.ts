@@ -1,4 +1,7 @@
-export const strToUint8Arr = (str: string) => {
+export const strToUint8Arr = (str?: string) => {
+	if (str === undefined) {
+		return new Uint8Array()
+	}
 	const buffer = []
 	for (let i of str) {
 		const _code = i.charCodeAt(0)
