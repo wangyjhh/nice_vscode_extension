@@ -3,7 +3,7 @@
 	"displayName": "nice_vscode_extension",
 	"description": "my first vscode extension",
 	"publisher": "wangyjhh",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"icon": "resource/icon.png",
 	"repository": {
 		"url": "https://gitee.com/DVN/translation_vscode_extension.git"
