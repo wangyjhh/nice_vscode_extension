@@ -1,0 +1,17 @@
+{
+	"Async Arrow Functions": {
+		"prefix": "af",
+		"body": ["async ($1)=>{", "$0    $2", "}"],
+		"description": "带async的箭头函数"
+	},
+	"Arrow Functions": {
+		"prefix": "f",
+		"body": ["($1)=>{", "$0    $2", "}"],
+		"description": "箭头函数"
+	},
+	"vue3 template": {
+		"prefix": "vtm",
+		"body": ["<template>", "", "</template>", "", "<script lang='ts' setup>", "", "</script>", "", "<style lang='scss' scoped>", "", "</style>"],
+		"description": "vue3 模板"
+	}
+}
