@@ -9,7 +9,7 @@
 		"url": "https://gitee.com/DVN/translation_vscode_extension.git"
 	},
 	"engines": {
-		"vscode": "^0.10.5"
+		"vscode": "^1.74.0"
 	},
 	"categories": [
 		"Other"
