@@ -6,7 +6,7 @@
 	"version": "0.2.2",
 	"icon": "resource/icon.png",
 	"repository": {
-		"url": "https://gitee.com/DVN/translation_vscode_extension.git"
+		"url": "https://github.com/wangyjhh/nice_vscode_extension.git"
 	},
 	"engines": {
 		"vscode": "^1.74.0"
