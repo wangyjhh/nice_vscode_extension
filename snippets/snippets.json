@@ -13,5 +13,35 @@
 		"prefix": "vtm",
 		"body": ["<template>", "", "</template>", "", "<script lang='ts' setup>", "", "</script>", "", "<style lang='scss' scoped>", "", "</style>"],
 		"description": "vue3 模板"
+	},
+	"export": {
+		"prefix": "e",
+		"body": ["export $0"],
+		"description": "导出关键字"
+	},
+	"exportFunction": {
+		"prefix": "ef",
+		"body": ["export const ${1:functionName} = (${2:params}) => {\n\t$0\n}\n"],
+		"description": "导出箭头函数"
+	},
+	"exportAsyncFunction": {
+		"prefix": "eaf",
+		"body": ["export const ${1:functionName} =async (${2:params}) => {\n\t$0\n}\n"],
+		"description": "导出异步箭头函数"
+	},
+	"import": {
+		"prefix": "i",
+		"body": ["import $0"],
+		"description": "导入关键字"
+	},
+	"importModule": {
+		"prefix": "imp",
+		"body": ["import ${2:moduleName} from '${1:module}'$0"],
+		"description": "导入模块"
+	},
+	"importPartOfTheModule": {
+		"prefix": "imd",
+		"body": ["mport { $2 } from '$1'$0"],
+		"description": "导入部分模块"
 	}
 }
