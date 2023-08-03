@@ -41,7 +41,7 @@
 	},
 	"importPartOfTheModule": {
 		"prefix": "imd",
-		"body": ["mport { $2 } from '$1'$0"],
+		"body": ["import { $2 } from '$1'$0"],
 		"description": "导入部分模块"
 	}
 }
