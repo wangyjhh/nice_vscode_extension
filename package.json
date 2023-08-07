@@ -3,7 +3,7 @@
 	"displayName": "nice_vscode_extension",
 	"description": "my first vscode extension",
 	"publisher": "wangyjhh",
-	"version": "0.3.1",
+	"version": "0.4.0",
 	"icon": "resource/icon.png",
 	"repository": {
 		"url": "https://github.com/wangyjhh/nice_vscode_extension.git"
@@ -114,6 +114,13 @@
 			{
 				"language": "vue",
 				"path": "./snippets/snippets.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "wangyj",
+				"uiTheme": "vs-dark",
+				"path": "./themes/wangyj-black.json"
 			}
 		]
 	},
