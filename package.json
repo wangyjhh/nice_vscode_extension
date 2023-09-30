@@ -15,7 +15,9 @@
 		"Other"
 	],
 	"main": "./out/extension.js",
-	"activationEvents": [],
+	"activationEvents": [
+		"onStartupFinished"
+	],
 	"contributes": {
 		"commands": [
 			{
