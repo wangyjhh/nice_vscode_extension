@@ -1,4 +1,4 @@
-import { ExtensionContext, commands } from "vscode"
+import { ExtensionContext, commands, languages, CancellationToken, TextDocument, Position, Hover, window } from "vscode"
 import { translateCommand } from "./command/translateCommand.js"
 import { toUpperOrLowerCaseCommand } from "./command/toUpperOrLowerCaseCommand.js"
 import { theFirstLetterReverseCommand } from "./command/theFirstLetterReverseCommand.js"
@@ -18,6 +18,27 @@ export function activate(context: ExtensionContext) {
 	let createJsFile = commands.registerCommand("wyj.createJsFileCommand", createJsFileCommand)
 	let createTargetFile = commands.registerCommand("wyj.createTargetFileCommand", createTargetFileCommand)
 
+	const hoverDisposable = languages.registerHoverProvider(
+		{ pattern: "**" },
+		{
+			provideHover: (document: TextDocument, position: Position) => {
+				const editor = window.activeTextEditor
+				let text = document.getText(document.getWordRangeAtPosition(position)).trim()
+				if (editor) {
+					// 获取鼠标选择区域文本
+					const selectionText = editor.document.getText(editor.selection)
+					if (selectionText) {
+						text = selectionText
+					}
+				}
+				// const result = await translate(text)
+				// if (result.dict) {
+				return new Hover(`译：${text}`)
+				// }
+			},
+		}
+	)
+
 	context.subscriptions.push(
 		translate,
 		toUpperOrLowerCase,
@@ -26,7 +47,8 @@ export function activate(context: ExtensionContext) {
 		createTsFile,
 		createVueFile,
 		createJsFile,
-		createTargetFile
+		createTargetFile,
+		hoverDisposable
 	)
 }
 export function deactivate() {}

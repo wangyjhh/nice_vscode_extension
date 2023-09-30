@@ -1,5 +1,7 @@
 import { window } from "vscode"
 import { translate } from "../utils/translate/translate.js"
+import type { TeanslateResult } from "../index.js"
+import { getType } from "../utils/getType"
 export const translateCommand = async () => {
 	const editor = window.activeTextEditor
 	if (!editor) {
@@ -10,10 +12,28 @@ export const translateCommand = async () => {
 		window.showWarningMessage("请先选择文本后在执行该命令！")
 		return
 	}
-	const translateResult = (await translate(selectionText)).data.translateResult[0][0].tgt
+	const translateResult: TeanslateResult = await translate(selectionText)
+
 	if (!translateResult) {
 		window.showErrorMessage("翻译失败")
 		return
 	}
-	window.showInformationMessage(translateResult)
+	const trans = translateResult.data[0].translations
+	const transMap = new Map<string, string[]>()
+
+	trans.forEach((t) => {
+		if (transMap.get(t.pos)) {
+			transMap.get(t.pos)!.push(t.target)
+		} else {
+			transMap.set(t.pos, [t.target])
+		}
+	})
+
+	let res = ""
+	for (const t of transMap) {
+		let type = getType(t[0])
+		res += `${type}: ${t[1].join(",")} \n`
+	}
+
+	window.showInformationMessage(res)
 }

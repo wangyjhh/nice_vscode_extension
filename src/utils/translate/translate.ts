@@ -1,5 +1,9 @@
-import { get } from "../axios/request.js"
+import $http from "../axios/request.js"
 
 export const translate = async (text: string) => {
-	return await get(text)
+	const { data: res } = await $http.post("https://api.relingo.net/api/lookupDict2", {
+		words: [`${text}`],
+		to: "zh",
+	})
+	return res
 }

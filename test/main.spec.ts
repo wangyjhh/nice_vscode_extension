@@ -1,17 +1,43 @@
 import { test, expect } from "vitest"
 import { translate } from "../src/utils/translate/translate"
 import { theFirstLetterReverse, getDocAstObjectKeyInfo } from "../src/utils/string/string"
+import type { TeanslateResult } from "../src/index"
+import { getType } from "../src/utils/getType/index"
 
 test("init", () => {
 	expect(true).toBe(true)
 })
 
-test("translate", async () => {
-	const text = "hello"
-	const translateResult = (await translate(text)).data.translateResult[0][0].tgt
-	console.log(translateResult)
+test("getType", () => {
+	expect(getType("NOUN")).toBe("名词")
+})
 
-	expect(translateResult).toBe("你好")
+test("translate", async () => {
+	const text = "hover"
+	const translateResult: TeanslateResult = await translate(text)
+	const trans = translateResult.data[0].translations
+	const transMap = new Map<string, string[]>()
+
+	trans.forEach((t) => {
+		if (transMap.get(t.pos)) {
+			transMap.get(t.pos)!.push(t.target)
+		} else {
+			transMap.set(t.pos, [t.target])
+		}
+	})
+
+	let res = ""
+	for (const t of transMap) {
+		let type = getType(t[0])
+		res += `${type}: ${t[1].join(",")} \n`
+	}
+
+	console.log(res)
+
+	// expect(newTrans).toStrictEqual([
+	// 	{ type: "NOUN", values: ["悬停", "翱翔", "徘徊", "气垫", "悬浮", "萦绕"] },
+	// 	{ type: "VERB", values: ["鼠标悬停", "盘旋"] },
+	// ])
 })
 
 test("toUpperOrLowerCase", async () => {
