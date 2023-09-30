@@ -13,12 +13,13 @@ export const translateCommand = async () => {
 		return
 	}
 	const translateResult: TeanslateResult = await translate(selectionText)
-
-	if (!translateResult) {
+	if (translateResult.data.length === 0) {
 		window.showErrorMessage("翻译失败")
 		return
 	}
+
 	const trans = translateResult.data[0].translations
+
 	const transMap = new Map<string, string[]>()
 
 	trans.forEach((t) => {
@@ -35,5 +36,5 @@ export const translateCommand = async () => {
 		res += `${type}: ${t[1].join(",")} \n`
 	}
 
-	window.showInformationMessage(res)
+	window.showInformationMessage("翻译", { modal: true, detail: res })
 }

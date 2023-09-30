@@ -1,26 +1,43 @@
-import * as vscode from "vscode"
+import { window, TextDocument, Position, Hover } from "vscode"
+import { translate } from "../utils/translate/translate.js"
+import type { TeanslateResult } from "../index.js"
+import { getType } from "../utils/getType"
 
-// class HoverProvider implements vscode.HoverProvider {
-// 	provideHover(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.Hover> | null {
-// 		// 获取当前单词
-// 		const word = document.getWordRangeAtPosition(position)
-// 		if (!word) {
-// 			return null
-// 		}
-// 		const definition = `This is the definition of the word '${word}'.`
+export const hoverProvider = async (document: TextDocument, position: Position) => {
+	const editor = window.activeTextEditor
+	let text = document.getText(document.getWordRangeAtPosition(position)).trim()
+	console.log(text)
 
-// 		// 创建一个新的 Hover 对象
-// 		const hover = new vscode.Hover([new vscode.MarkdownString(definition)], word)
+	if (editor) {
+		// 获取鼠标选择区域文本
+		const selectionText = editor.document.getText(editor.selection)
+		console.log(selectionText)
 
-// 		return hover
-// 	}
-// }
+		if (selectionText) {
+			text = selectionText
+		}
+	}
+	const translateResult: TeanslateResult = await translate(text)
+	if (translateResult.data.length !== 0) {
+		console.log(1)
 
-// // 注册 HoverProvider
-// vscode.languages.registerHoverProvider("*", new HoverProvider())
-vscode.languages.registerHoverProvider("*", {
-	provideHover(document, position, token) {
-		console.log(position)
-		return new vscode.Hover("I am a hover!")
-	},
-})
+		const trans = translateResult.data[0].translations
+
+		const transMap = new Map<string, string[]>()
+
+		trans.forEach((t) => {
+			if (transMap.get(t.pos)) {
+				transMap.get(t.pos)!.push(t.target)
+			} else {
+				transMap.set(t.pos, [t.target])
+			}
+		})
+
+		let res = ""
+		for (const t of transMap) {
+			let type = getType(t[0])
+			res += `${type}: ${t[1].join(",")} \n`
+		}
+		return new Hover(`译：${res}`)
+	}
+}
