@@ -17,8 +17,6 @@ export const translateCommand = async () => {
 		window.showErrorMessage("翻译失败")
 		return
 	}
-
 	const trans = translateResult.data
-
 	window.showInformationMessage(trans)
 }

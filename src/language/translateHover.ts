@@ -16,7 +16,7 @@ export const hoverProvider = async (document: TextDocument, position: Position) 
 			text = selectionText
 		}
 	}
-	const translateResult: TeanslateWordResult = await translateWord(text)
+	const translateResult: TeanslateWordResult = await translateWord(text.toLocaleLowerCase())
 	if (translateResult.data.length !== 0) {
 		const trans = translateResult.data[0].translations
 		const transMap = new Map<string, string[]>()
@@ -31,9 +31,6 @@ export const hoverProvider = async (document: TextDocument, position: Position) 
 			let type = getType(t[0])
 			res += `- **${type}**: ${t[1].join(",")}\n`
 		}
-
-		console.log(res)
-
 		return new Hover(`${res}`)
 	}
 }
