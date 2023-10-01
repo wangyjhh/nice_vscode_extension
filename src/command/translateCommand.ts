@@ -13,28 +13,12 @@ export const translateCommand = async () => {
 		return
 	}
 	const translateResult: TeanslateResult = await translate(selectionText)
-	if (translateResult.data.length === 0) {
+	if (translateResult.error) {
 		window.showErrorMessage("翻译失败")
 		return
 	}
 
-	const trans = translateResult.data[0].translations
+	const trans = translateResult.data
 
-	const transMap = new Map<string, string[]>()
-
-	trans.forEach((t) => {
-		if (transMap.get(t.pos)) {
-			transMap.get(t.pos)!.push(t.target)
-		} else {
-			transMap.set(t.pos, [t.target])
-		}
-	})
-
-	let res = ""
-	for (const t of transMap) {
-		let type = getType(t[0])
-		res += `${type}: ${t[1].join(",")} \n`
-	}
-
-	window.showInformationMessage("翻译", { modal: true, detail: res })
+	window.showInformationMessage(trans)
 }
