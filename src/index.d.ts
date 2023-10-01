@@ -1,4 +1,4 @@
-export interface TeanslateResult {
+export interface TeanslateWordResult {
 	code: number
 	message?: any
 	data: Data[]
@@ -45,4 +45,11 @@ interface Variant {
 	hovers: string[]
 	hovered: string[]
 	hovering: string[]
+}
+
+export interface TeanslateResult {
+	from: string
+	to: string
+	data: string
+	error: number
 }
