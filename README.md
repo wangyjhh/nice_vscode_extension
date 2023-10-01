@@ -11,11 +11,11 @@
 --- 
 ### 演示
   1. 划词翻译
-     ![划词翻译](https://yujiehh.top/transHover.gif)
+     ![划词翻译](https://github.com/wangyjhh/nice_vscode_extension/blob/master/resource/transHover.gif)
   2. 翻译句子
-     ![翻译句子](https://yujiehh.top/trans.gif)
+     ![翻译句子](https://github.com/wangyjhh/nice_vscode_extension/blob/master/resource/trans.gif)
   3. 选中文字大小写转换
-     ![大小写转换](https://yujiehh.top/change.gif)
+     ![大小写转换](https://github.com/wangyjhh/nice_vscode_extension/blob/master/resource/change.gif)
 ### 快捷键
 
   | 按键  | 说明                             |
