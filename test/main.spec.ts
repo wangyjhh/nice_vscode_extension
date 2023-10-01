@@ -1,7 +1,7 @@
 import { test, expect } from "vitest"
-import { translate } from "../src/utils/translate/translate"
+import { translateWord, translate } from "../src/utils/translate/translate"
 import { theFirstLetterReverse, getDocAstObjectKeyInfo } from "../src/utils/string/string"
-import type { TeanslateResult } from "../src/index"
+import type { TeanslateWordResult, TeanslateResult } from "../src/index"
 import { getType } from "../src/utils/getType/index"
 
 test("init", () => {
@@ -12,9 +12,9 @@ test("getType", () => {
 	expect(getType("NOUN")).toBe("名词")
 })
 
-test("translate", async () => {
+test("translateWord", async () => {
 	const text = "hover"
-	const translateResult: TeanslateResult = await translate(text)
+	const translateResult: TeanslateWordResult = await translateWord(text)
 	const trans = translateResult.data[0].translations
 	const transMap = new Map<string, string[]>()
 
@@ -32,12 +32,22 @@ test("translate", async () => {
 		res += `${type}: ${t[1].join(",")} \n`
 	}
 
-	console.log(res)
+	// console.log(res)
 
 	// expect(newTrans).toStrictEqual([
 	// 	{ type: "NOUN", values: ["悬停", "翱翔", "徘徊", "气垫", "悬浮", "萦绕"] },
 	// 	{ type: "VERB", values: ["鼠标悬停", "盘旋"] },
 	// ])
+})
+
+test("translate", async () => {
+	const text = "Enum Member name `NOUN` must match one of the following formats"
+	const translateResult: TeanslateResult = await translate(text)
+	const trans = translateResult.data
+
+	console.log(trans)
+
+	expect(trans).toBe("枚举成员名称“NOUN”必须与以下格式之一匹配")
 })
 
 test("toUpperOrLowerCase", async () => {
