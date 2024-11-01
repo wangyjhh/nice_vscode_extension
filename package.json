@@ -120,9 +120,14 @@
         ],
         "themes": [
             {
-                "label": "wangyj",
+                "label": "wangyj-black",
                 "uiTheme": "vs-dark",
                 "path": "./themes/wangyj-black.json"
+            },
+            {
+                "label": "wangyj-bright-black",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wangyj-bright-black.json"
             }
         ]
     },
