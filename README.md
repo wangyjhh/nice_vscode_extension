@@ -1,6 +1,6 @@
 # wyj nice vscode extension
     wyj的vscode插件，用于提供日常编写代码时各种常用快捷功能
---- 
+---
 ### 功能
     * 翻译选中的文本，支持划词翻译
     * 选中的文本大小写转换(全部转换或首字母转换)
@@ -8,7 +8,7 @@
     * 扩展配置项中可配置新建语言文件的扩展名
     * 个人常用代码片段
     * vscode暗色主题
---- 
+---
 ### 演示
   1. 划词翻译
      ![划词翻译](https://yujiehh.top/transHover.gif)
@@ -38,7 +38,6 @@
   | imp    | 导入模块         |
   | imd    | 导入部分模块     |
 
---- 
+---
 ### 声明
 扩展所带的暗色主题是基于[Anthony Fu](https://github.com/antfu)的 [vscode-theme-vitesse](https://github.com/antfu/vscode-theme-vitesse)这个库生成的，主题本身已经非常好看了，我修改了部分样式，使主题更符合我自己的使用体验。
-

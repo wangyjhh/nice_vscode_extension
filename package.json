@@ -1,157 +1,157 @@
 {
-	"name": "nice-vscode-extension",
-	"displayName": "nice_vscode_extension",
-	"description": "my first vscode extension",
-	"publisher": "wangyjhh",
-	"version": "0.5.0",
-	"icon": "resource/icon.png",
-	"repository": {
-		"url": "https://github.com/wangyjhh/nice_vscode_extension.git"
-	},
-	"engines": {
-		"vscode": "^1.74.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"main": "./out/extension.js",
-	"activationEvents": [
-		"onStartupFinished"
-	],
-	"contributes": {
-		"commands": [
-			{
-				"command": "wyj.translationCommand",
-				"title": "Translate"
-			},
-			{
-				"command": "wyj.toUpperOrLowerCaseCommand",
-				"title": "ToUpperOrLowerCase"
-			},
-			{
-				"command": "wyj.theFirstLetterReverseCommand",
-				"title": "TheFirstLetterReverse"
-			},
-			{
-				"command": "wyj.jsonStringifyCommand",
-				"title": "TheFirstLetterReverse"
-			},
-			{
-				"command": "wyj.createTsFileCommand",
-				"title": "新建ts文件"
-			},
-			{
-				"command": "wyj.createVueFileCommand",
-				"title": "新建vue文件"
-			},
-			{
-				"command": "wyj.createJsFileCommand",
-				"title": "新建js文件"
-			},
-			{
-				"command": "wyj.createTargetFileCommand",
-				"title": "新建自定义文件"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "wyj.translationCommand",
-				"key": "alt+w",
-				"mac": "alt+w"
-			},
-			{
-				"command": "wyj.toUpperOrLowerCaseCommand",
-				"key": "alt+a",
-				"mac": "alt+a"
-			},
-			{
-				"command": "wyj.theFirstLetterReverseCommand",
-				"key": "alt+q",
-				"mac": "alt+q"
-			},
-			{
-				"command": "wyj.jsonStringifyCommand",
-				"key": "alt+j",
-				"mac": "alt+j"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"command": "wyj.createTsFileCommand",
-					"group": "navigation"
-				},
-				{
-					"command": "wyj.createVueFileCommand",
-					"group": "navigation"
-				},
-				{
-					"command": "wyj.createJsFileCommand",
-					"group": "navigation"
-				},
-				{
-					"command": "wyj.createTargetFileCommand",
-					"group": "navigation"
-				}
-			]
-		},
-		"configuration": {
-			"title": "Nice Vscode Extension",
-			"properties": {
-				"nice_vscode_extension.自定义扩展名": {
-					"type": "string",
-					"default": ".txt"
-				}
-			}
-		},
-		"snippets": [
-			{
-				"language": "javascript",
-				"path": "./snippets/snippets.json"
-			},
-			{
-				"language": "typescript",
-				"path": "./snippets/snippets.json"
-			},
-			{
-				"language": "vue",
-				"path": "./snippets/snippets.json"
-			}
-		],
-		"themes": [
-			{
-				"label": "wangyj",
-				"uiTheme": "vs-dark",
-				"path": "./themes/wangyj-black.json"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "pnpm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "pnpm run compile && pnpm run lint",
-		"lint": "eslint src --ext ts",
-		"test": "vitest --run"
-	},
-	"devDependencies": {
-		"@types/babel__traverse": "^7.18.3",
-		"@types/glob": "^8.0.0",
-		"@types/mocha": "^10.0.1",
-		"@types/node": "16.x",
-		"@types/vscode": "^1.74.0",
-		"@typescript-eslint/eslint-plugin": "^5.45.0",
-		"@typescript-eslint/parser": "^5.45.0",
-		"@vscode/test-electron": "^2.2.0",
-		"eslint": "^8.28.0",
-		"glob": "^8.0.3",
-		"mocha": "^10.1.0",
-		"typescript": "^4.9.3",
-		"vitest": "^0.24.1"
-	},
-	"dependencies": {
-		"@babel/parser": "^7.20.15",
-		"@babel/traverse": "^7.20.13",
-		"axios": "^1.2.2"
-	}
+    "publisher": "wangyjhh",
+    "name": "nice-vscode-extension",
+    "displayName": "nice_vscode_extension",
+    "version": "0.5.0",
+    "description": "my first vscode extension",
+    "repository": {
+        "url": "https://github.com/wangyjhh/nice_vscode_extension.git"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/extension.js",
+    "icon": "resource/icon.png",
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "wyj.translationCommand",
+                "title": "Translate"
+            },
+            {
+                "command": "wyj.toUpperOrLowerCaseCommand",
+                "title": "ToUpperOrLowerCase"
+            },
+            {
+                "command": "wyj.theFirstLetterReverseCommand",
+                "title": "TheFirstLetterReverse"
+            },
+            {
+                "command": "wyj.jsonStringifyCommand",
+                "title": "TheFirstLetterReverse"
+            },
+            {
+                "command": "wyj.createTsFileCommand",
+                "title": "新建ts文件"
+            },
+            {
+                "command": "wyj.createVueFileCommand",
+                "title": "新建vue文件"
+            },
+            {
+                "command": "wyj.createJsFileCommand",
+                "title": "新建js文件"
+            },
+            {
+                "command": "wyj.createTargetFileCommand",
+                "title": "新建自定义文件"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "wyj.translationCommand",
+                "key": "alt+w",
+                "mac": "alt+w"
+            },
+            {
+                "command": "wyj.toUpperOrLowerCaseCommand",
+                "key": "alt+a",
+                "mac": "alt+a"
+            },
+            {
+                "command": "wyj.theFirstLetterReverseCommand",
+                "key": "alt+q",
+                "mac": "alt+q"
+            },
+            {
+                "command": "wyj.jsonStringifyCommand",
+                "key": "alt+j",
+                "mac": "alt+j"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "command": "wyj.createTsFileCommand",
+                    "group": "navigation"
+                },
+                {
+                    "command": "wyj.createVueFileCommand",
+                    "group": "navigation"
+                },
+                {
+                    "command": "wyj.createJsFileCommand",
+                    "group": "navigation"
+                },
+                {
+                    "command": "wyj.createTargetFileCommand",
+                    "group": "navigation"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Nice Vscode Extension",
+            "properties": {
+                "nice_vscode_extension.自定义扩展名": {
+                    "type": "string",
+                    "default": ".txt"
+                }
+            }
+        },
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "typescript",
+                "path": "./snippets/snippets.json"
+            },
+            {
+                "language": "vue",
+                "path": "./snippets/snippets.json"
+            }
+        ],
+        "themes": [
+            {
+                "label": "wangyj",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wangyj-black.json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "pnpm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "pnpm run compile && pnpm run lint",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "test": "vitest --run"
+    },
+    "dependencies": {
+        "@babel/parser": "^7.20.15",
+        "@babel/traverse": "^7.20.13",
+        "axios": "^1.2.2"
+    },
+    "devDependencies": {
+        "@types/babel__traverse": "^7.18.3",
+        "@types/glob": "^8.0.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.74.0",
+        "@vscode/test-electron": "^2.2.0",
+        "@wangyjhh/eslint-config": "^1.0.2",
+        "eslint": "^9.13.0",
+        "glob": "^8.0.3",
+        "mocha": "^10.1.0",
+        "typescript": "^4.9.3",
+        "vitest": "^0.24.1"
+    }
 }

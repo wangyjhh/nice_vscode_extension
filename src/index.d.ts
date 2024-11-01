@@ -1,55 +1,55 @@
 export interface TeanslateWordResult {
-	code: number
-	message?: any
-	data: Data[]
+    code: number
+    message?: any
+    data: Data[]
 }
 
 interface Data {
-	word: string
-	variant: Variant
-	phonetic: Phonetic
-	wordFrequency: number
-	definition: Definition2[]
-	translations: Translation[]
-	mastered: boolean
-	stared: boolean
-	sentences: any[]
-	needRevise: boolean
+    word: string
+    variant: Variant
+    phonetic: Phonetic
+    wordFrequency: number
+    definition: Definition2[]
+    translations: Translation[]
+    mastered: boolean
+    stared: boolean
+    sentences: any[]
+    needRevise: boolean
 }
 
 interface Translation {
-	target: string
-	pos: string
-	score: number
+    target: string
+    pos: string
+    score: number
 }
 
 interface Definition2 {
-	partOfSpeech: string
-	language: string
-	definitions: Definition[]
-	synonyms: any[]
-	antonyms: any[]
+    partOfSpeech: string
+    language: string
+    definitions: Definition[]
+    synonyms: any[]
+    antonyms: any[]
 }
 
 interface Definition {
-	definition: string
-	examples: any[]
+    definition: string
+    examples: any[]
 }
 
 interface Phonetic {
-	us: string[]
-	uk: string[]
+    us: string[]
+    uk: string[]
 }
 
 interface Variant {
-	hovers: string[]
-	hovered: string[]
-	hovering: string[]
+    hovers: string[]
+    hovered: string[]
+    hovering: string[]
 }
 
 export interface TeanslateResult {
-	from: string
-	to: string
-	data: string
-	error: number
+    from: string
+    to: string
+    data: string
+    error: number
 }
