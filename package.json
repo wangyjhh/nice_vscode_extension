@@ -128,6 +128,16 @@
                 "label": "wangyj-bright-black",
                 "uiTheme": "vs-dark",
                 "path": "./themes/wangyj-bright-black.json"
+            },
+            {
+                "label": "wangyj-contrast-black",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wangyj-contrast-black.json"
+            },
+            {
+                "label": "wangyj-contrast-bright-black",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wangyj-contrast-bright-black.json"
             }
         ]
     },
