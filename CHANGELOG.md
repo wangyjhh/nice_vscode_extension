@@ -1,4 +1,6 @@
 # 更新日志
+## 0.7.4 (2024-11-20)
+* 调整vscode主题Badge.background、profileBadge.background颜色值
 ## 0.7.3 (2024-11-20)
 * 调整vscode主题activityBarBadge.background颜色值
 ## 0.7.2 (2024-11-20)
