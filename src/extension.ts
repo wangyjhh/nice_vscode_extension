@@ -1,13 +1,15 @@
 import type { ExtensionContext } from 'vscode'
 import { commands, languages } from 'vscode'
-import { createJsFileCommand } from './command/createJsFileCommand.js'
-import { createTargetFileCommand } from './command/createTargetFileCommand.js'
-import { createTsFileCommand } from './command/createTsFileCommand.js'
-import { createVueFileCommand } from './command/createVueFileCommand.js'
-import { jsonHandleCommand } from './command/jsonHandleCommand.js'
-import { theFirstLetterReverseCommand } from './command/theFirstLetterReverseCommand.js'
-import { toUpperOrLowerCaseCommand } from './command/toUpperOrLowerCaseCommand.js'
-import { translateCommand } from './command/translateCommand.js'
+import {
+    createJsFileCommand,
+    createTargetFileCommand,
+    createTsFileCommand,
+    createVueFileCommand,
+    jsonHandleCommand,
+    theFirstLetterReverseCommand,
+    toUpperOrLowerCaseCommand,
+    translateCommand,
+} from './command'
 import { hoverProvider } from './language/translateHover.js'
 
 export function activate(context: ExtensionContext) {

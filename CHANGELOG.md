@@ -1,4 +1,10 @@
 # 更新日志
+## 0.7.2 (2024-11-20)
+* 调整vscode主题(wangyj-black、wangyj-bright-black)
+## 0.7.1 (2024-11-19)
+* 调整vscode主题(wangyj-black、wangyj-bright-black)
+## 0.7.0 (2024-11-19)
+* 新增vscode主题(wangyj-contrast-black、wangyj-contrast-bright-black)
 ## 0.6.0 (2024-11-1)
 * 新增vscode暗色主题(wangyj-bright-black)
 ## 0.5.0 (2023-10-1)
