@@ -30,7 +30,7 @@ export const getDocAstObjectKeyInfo = (code: string, index: number) => {
     const ast = parse(code)
 
     traverse(ast, {
-        ObjectExpression(path) {
+        ObjectExpression(path: any) {
             if (index >= path.node.start! && index <= path.node.end!) {
                 obj = path.node
             }

@@ -148,7 +148,8 @@
         "pretest": "pnpm run compile && pnpm run lint",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "test": "vitest --run"
+        "test": "vitest --run",
+        "theme":"tsx ./src/utils/createTheme/index.ts"
     },
     "dependencies": {
         "@babel/parser": "^7.20.15",
@@ -166,6 +167,7 @@
         "eslint": "^9.13.0",
         "glob": "^8.0.3",
         "mocha": "^10.1.0",
+        "tsx": "^4.19.4",
         "typescript": "^4.9.3",
         "vitest": "^0.24.1"
     }
