@@ -176,7 +176,40 @@ export const colors = {
     'profileBadge.background': '', // 个人资料徽章背景颜色。个人资料徽章显示在活动栏中的设置齿轮图标顶部。
     'profileBadge.foreground': '', // 个人资料徽章前景色。个人资料徽章显示在活动栏中的设置齿轮图标顶部。
     'profiles.sashBorder': '', // 配置文件编辑器 分页视图 窗框的颜色。
-
-    
-
+    /**
+     * 侧边栏
+     */
+    'sideBar.background': '', // 侧边栏背景颜色。
+    'sideBar.foreground': '', // 侧边栏前景色。侧边栏是 资源管理器 和 搜索 等视图的容器。
+    'sideBar.border': '', // 分隔编辑器的一侧的侧边栏边框颜色。
+    'sideBar.dropBackground': '', // 拖放侧边栏部分的反馈颜色。颜色应具有透明度，以便侧边栏部分仍可透过。
+    'sideBarTitle.foreground': '', // 侧边栏标题前景色。
+    'sideBarSectionHeader.background': '', // 侧边栏部分标题背景色。
+    'sideBarSectionHeader.foreground': '', // 侧边栏部分标题前景色。
+    'sideBarSectionHeader.border': '', // 侧边栏部分标题边框颜色。
+    'sideBarActivityBarTop.border': '', // 顶部/底部的活动栏与视图之间的边框颜色。
+    'sideBarTitle.background': '', // 侧边栏标题背景色。
+    'sideBarTitle.border': '', // 侧边栏标题边框颜色。侧边栏标题边框颜色在底部，将标题与视图分开。
+    'sideBarStickyScroll.background': '', // 侧边栏粘性滚动条背景颜色。
+    'sideBarStickyScroll.border': '', // 侧边栏粘性滚动条边框颜色。
+    'sideBarStickyScroll.shadow': '', // 侧边栏粘性滚动条阴影颜色。
+    /**
+     * 小地图
+     */
+    'minimap.findMatchHighlight': '', // 高亮显示文件中搜索的匹配项的颜色。
+    'minimap.selectionHighlight': '', // 高亮显示编辑器选择的颜色。
+    'minimap.errorHighlight': '', // 在编辑器中高亮显示错误的颜色。
+    'minimap.warningHighlight': '', // 在编辑器中高亮显示警告的颜色。
+    'minimap.background': '', // 小地图背景颜色。
+    'minimap.selectionOccurrenceHighlight': '', // 高亮显示小地图中选择的颜色。
+    'minimap.foregroundOpacity': '', // 小地图中渲染的前景元素的不透明度。例如，“#000000c0” 将渲染不透明度为 75% 的元素。
+    'minimap.infoHighlight': '', // 在编辑器中高亮显示信息的颜色。
+    'minimap.chatEditHighlight': '', // 小地图中待处理编辑区域的颜色。
+    'minimapSlider.background': '', // 小地图滑块的背景颜色。
+    'minimapSlider.hoverBackground': '', // 悬停时小地图滑块的背景颜色。
+    'minimapSlider.activeBackground': '', // 小地图滑块的活动背景颜色。
+    'minimapGutter.addedBackground': '', // 添加内容的小地图装订线颜色。
+    'minimapGutter.modifiedBackground': '', // 修改内容的小地图间距颜色。
+    'minimapGutter.deletedBackground': '', // 已删除内容的小地图装订线颜色。
+    'editorMinimap.inlineChatInserted': '', // 内联聊天插入内容的小地图标记颜色。
 }
