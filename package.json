@@ -138,6 +138,11 @@
                 "label": "wangyj-contrast-bright-black",
                 "uiTheme": "vs-dark",
                 "path": "./themes/wangyj-contrast-bright-black.json"
+            },
+            {
+                "label": "wangyj-film-black",
+                "uiTheme": "vs-dark",
+                "path": "./themes/wangyj-film-black.json"
             }
         ]
     },
@@ -149,7 +154,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "vitest --run",
-        "theme":"tsx ./src/utils/createTheme/index.ts"
+        "theme": "tsx ./src/utils/createTheme/index.ts"
     },
     "dependencies": {
         "@babel/parser": "^7.20.15",
