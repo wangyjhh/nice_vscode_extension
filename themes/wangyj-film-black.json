@@ -320,13 +320,13 @@
         {
             "scope": "support",
             "settings": {
-                "foreground": "#D4C9A6"
+                "foreground": "#c4C9A6"
             }
         },
         {
             "scope": ["property", "meta.property-name", "meta.object-literal.key", "entity.name.tag.yaml", "attribute.name"],
             "settings": {
-                "foreground": "#D4C9A6"
+                "foreground": "#c4C9A6"
             }
         },
         {
