@@ -227,7 +227,11 @@
     },
     "tokenColors": [
         {
-            "scope": ["comment", "punctuation.definition.comment", "string.comment"],
+            "scope": [
+                "comment",
+                "punctuation.definition.comment",
+                "string.comment"
+            ],
             "settings": {
                 "foreground": "#6D8A75DD"
             }
@@ -258,7 +262,12 @@
             }
         },
         {
-            "scope": ["constant", "entity.name.constant", "variable.language", "meta.definition.variable"],
+            "scope": [
+                "constant",
+                "entity.name.constant",
+                "variable.language",
+                "meta.definition.variable"
+            ],
             "settings": {
                 "foreground": "#D4B682"
             }

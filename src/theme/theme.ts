@@ -109,7 +109,7 @@ export function createTheme(options: ThemeOptions) {
             'pickerGroup.foreground': options.colors.foreground,
             'quickInput.background': options.colors.background,
             'quickInput.foreground': options.colors.foreground,
-            'quickInputList.focusBackground': '',
+            'quickInputList.focusBackground': options.colors.selectionBackground,
 
             'statusBar.foreground': options.colors.foreground,
             'statusBar.background': options.colors.background,
@@ -332,6 +332,12 @@ export function createTheme(options: ThemeOptions) {
                 },
             },
             {
+                scope: 'variable.parameter.function.language.special.self.python',
+                settings: {
+                    foreground: options.colors.brightPurple,
+                },
+            },
+            {
                 scope: [
                     'entity.name.tag',
                     'tag.html',
@@ -373,11 +379,18 @@ export function createTheme(options: ThemeOptions) {
                 scope: [
                     'text.html.derivative',
                     'storage.modifier.package',
-                    'storage.modifier.import',
                     'storage.type.java',
                 ],
                 settings: {
                     foreground: tokenColors.htmlText,
+                },
+            },
+            {
+                scope: [
+                    'storage.modifier.import',
+                ],
+                settings: {
+                    foreground: options.colors.foreground,
                 },
             },
             {
@@ -550,7 +563,7 @@ export function createTheme(options: ThemeOptions) {
                     'number',
                 ],
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.numbers,
                 },
             },
             {
@@ -558,7 +571,7 @@ export function createTheme(options: ThemeOptions) {
                     'keyword.other.unit',
                 ],
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.units,
                 },
             },
             {
@@ -567,52 +580,52 @@ export function createTheme(options: ThemeOptions) {
                     'constant.language',
                 ],
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.booleans,
                 },
             },
             {
                 scope: 'meta.module-reference',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.modules,
                 },
             },
             {
                 scope: 'punctuation.definition.list.begin.markdown',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.markdownList,
                 },
             },
             {
                 scope: ['markup.heading', 'markup.heading entity.name'],
                 settings: {
                     fontStyle: 'bold',
-                    foreground: '',
+                    foreground: tokenColors.headings,
                 },
             },
             {
                 scope: 'markup.quote',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.quotes,
                 },
             },
             {
                 scope: 'markup.italic',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: '',
+                    foreground: tokenColors.htmlText,
                 },
             },
             {
                 scope: 'markup.bold',
                 settings: {
                     fontStyle: 'bold',
-                    foreground: '',
+                    foreground: tokenColors.htmlText,
                 },
             },
             {
                 scope: 'markup.raw',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.modules,
                 },
             },
             {
@@ -622,8 +635,8 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.deleted',
                 ],
                 settings: {
-                    background: '',
-                    foreground: '',
+                    background: tokenColors.deletedBg,
+                    foreground: tokenColors.deleted,
                 },
             },
             {
@@ -633,48 +646,48 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.inserted',
                 ],
                 settings: {
-                    background: '',
-                    foreground: '',
+                    background: tokenColors.insertedBg,
+                    foreground: tokenColors.inserted,
                 },
             },
             {
                 scope: ['markup.changed', 'punctuation.definition.changed'],
                 settings: {
-                    background: '',
-                    foreground: '',
+                    background: tokenColors.changedBg,
+                    foreground: tokenColors.changed,
                 },
             },
             {
                 scope: ['markup.ignored', 'markup.untracked'],
                 settings: {
-                    foreground: '',
-                    background: '',
+                    foreground: tokenColors.ignored,
+                    background: tokenColors.ignoredBg,
                 },
             },
             {
                 scope: 'meta.diff.range',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.diffRange,
                     fontStyle: 'bold',
                 },
             },
             {
                 scope: 'meta.diff.header',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.diffHeader,
                 },
             },
             {
                 scope: 'meta.separator',
                 settings: {
                     fontStyle: 'bold',
-                    foreground: '',
+                    foreground: tokenColors.diffHeader,
                 },
             },
             {
                 scope: 'meta.output',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.diffHeader,
                 },
             },
             {
@@ -687,13 +700,13 @@ export function createTheme(options: ThemeOptions) {
                     'brackethighlighter.quote',
                 ],
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.brackets,
                 },
             },
             {
                 scope: 'brackethighlighter.unmatched',
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.unmatchedBracket,
                 },
             },
             {
@@ -704,7 +717,7 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.string.end.markdown',
                 ],
                 settings: {
-                    foreground: '',
+                    foreground: tokenColors.links,
                 },
             },
             {
@@ -713,7 +726,7 @@ export function createTheme(options: ThemeOptions) {
                     'markup.underline.link.image.markdown',
                 ],
                 settings: {
-                    foreground: tokenColors.links,
+                    foreground: tokenColors.brackets,
                     fontStyle: 'underline',
                 },
             },
