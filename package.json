@@ -163,7 +163,6 @@
     },
     "devDependencies": {
         "@types/babel__traverse": "^7.18.3",
-        "@types/glob": "^8.0.0",
         "@types/mocha": "^10.0.1",
         "@types/node": "16.x",
         "@types/vscode": "^1.74.0",
