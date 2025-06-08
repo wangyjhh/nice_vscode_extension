@@ -1,4 +1,6 @@
 # 更新日志
+## 0.8.0 (2025-6-8)
+* 新增vscode主题(wangyj-film-black)
 ## 0.7.4 (2024-11-20)
 * 调整vscode主题Badge.background、profileBadge.background颜色值
 ## 0.7.3 (2024-11-20)
