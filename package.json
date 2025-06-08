@@ -147,7 +147,7 @@
             {
                 "label": "test",
                 "uiTheme": "vs-dark",
-                "path": "./src/theme/dist/wangyj-fujifilm-black.json"
+                "path": "./src/theme/dist/wangyj-film-black.json"
             }
         ]
     },
@@ -159,7 +159,7 @@
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
         "test": "vitest --run",
-        "theme": "tsx ./src/theme/index.ts"
+        "theme": "tsx watch ./src/theme/index.ts"
     },
     "dependencies": {
         "@babel/parser": "^7.20.15",

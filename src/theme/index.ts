@@ -3,17 +3,17 @@ import { existsSync, writeFileSync } from 'node:fs'
 import { alpha, colors } from './colors'
 import { createTheme } from './theme'
 
-const THEME_NAME = 'wangyj-fujifilm-black'
+const THEME_NAME = 'wangyj-film-black'
 
-const fujifilmBlack = createTheme({
+const filmBlack = createTheme({
     name: THEME_NAME,
     colors,
 })
 
-// log(fujifilmBlack)
+// log(filmBlack)
 
 if (existsSync(`./src/theme/dist/${THEME_NAME}.json`)) {
-    writeFileSync(`./src/theme/dist/${THEME_NAME}.json`, JSON.stringify(fujifilmBlack, null, 4))
+    writeFileSync(`./src/theme/dist/${THEME_NAME}.json`, JSON.stringify(filmBlack, null, 4))
     log('generate theme success')
 }
 else {
