@@ -2,13 +2,14 @@ import { alpha, tokenColors } from './colors'
 
 interface ThemeOptions {
     name: string
+    base: 'vs-dark' | 'vs-light'
     colors: any
 }
 
 export function createTheme(options: ThemeOptions) {
     const theme = {
         name: options.name,
-        base: 'vs-dark',
+        base: options.base,
         colors: {
             'focusBorder': alpha(options.colors.selectionBackground, 80),
             'foreground': options.colors.foreground,

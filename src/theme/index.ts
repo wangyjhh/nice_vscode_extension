@@ -1,12 +1,13 @@
 import { log } from 'node:console'
 import { existsSync, writeFileSync } from 'node:fs'
-import { alpha, colors } from './colors'
+import { base, colors, name } from './colors'
 import { createTheme } from './theme'
 
-const THEME_NAME = 'wangyj-film-black'
+const THEME_NAME = name
 
 const filmBlack = createTheme({
     name: THEME_NAME,
+    base,
     colors,
 })
 

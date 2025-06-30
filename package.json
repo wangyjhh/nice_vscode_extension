@@ -143,6 +143,11 @@
                 "label": "wangyj-film-black",
                 "uiTheme": "vs-dark",
                 "path": "./themes/wangyj-film-black.json"
+            },
+            {
+                "label": "wangyj-film-light",
+                "uiTheme": "vs-dark",
+                "path": "./src/theme/dist/wangyj-film-light.json"
             }
         ]
     },
