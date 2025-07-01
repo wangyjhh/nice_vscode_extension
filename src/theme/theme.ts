@@ -66,8 +66,10 @@ export function createTheme(options: ThemeOptions) {
             'activityBarBadge.background': options.colors.primary,
             'activityBarTop.foreground': options.colors.primary,
             'activityBarTop.activeBorder': options.colors.primary,
-            'activityBarTop.inactiveForeground': alpha(options.colors.foreground, 50),
+            'activityBarTop.inactiveForeground': options.colors.foreground,
             'activityBarTop.dropBorder': options.colors.selectionBackground,
+
+            'icon.foreground': options.colors.foreground,
 
             'profileBadge.background': options.colors.primary,
             'profileBadge.foreground': options.colors.foreground,
@@ -175,7 +177,7 @@ export function createTheme(options: ThemeOptions) {
             'diffEditor.insertedTextBackground': alpha(options.colors.primary, 20),
             'diffEditor.removedTextBackground': alpha(options.colors.red, 22),
 
-            // 'scrollbar.shadow': options.colors.selectionBackground,
+            'scrollbar.shadow': options.colors.background,
             'scrollbarSlider.background': alpha(options.colors.selectionBackground, 30),
             'scrollbarSlider.hoverBackground': alpha(options.colors.selectionBackground, 80),
             'scrollbarSlider.activeBackground': alpha(options.colors.selectionBackground, 80),
