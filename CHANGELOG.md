@@ -1,4 +1,7 @@
 # 更新日志
+## 0.9.0 (2025-7-5)
+* 新增vscode主题(wangyj-film-light)
+* 微调vscode主题(wangyj-film-black)
 ## 0.8.1 (2025-6-8)
 * 去除测试代码
 ## 0.8.0 (2025-6-8)

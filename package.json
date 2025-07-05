@@ -147,7 +147,7 @@
             {
                 "label": "wangyj-film-light",
                 "uiTheme": "vs-dark",
-                "path": "./src/theme/dist/wangyj-film-light.json"
+                "path": "./themes/wangyj-film-light.json"
             }
         ]
     },
