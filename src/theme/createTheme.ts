@@ -1,9 +1,10 @@
-import { alpha, tokenColors } from './colors'
+import { alpha } from './themes'
 
 interface ThemeOptions {
     name: string
-    base: 'vs-dark' | 'vs-light'
+    base: string
     colors: any
+    tokenColors: any
 }
 
 export function createTheme(options: ThemeOptions) {
@@ -141,7 +142,7 @@ export function createTheme(options: ThemeOptions) {
             'tab.activeBackground': alpha(options.colors.selectionBackground, 50),
             // 'tab.hoverBackground': options.colors.selectionBackground,
             // 'tab.unfocusedHoverBackground': options.colors.background,
-            // 'tab.border': alpha(options.colors.selectionBackground, 80),
+            'tab.border': alpha(options.colors.selectionBackground, 80),
             // 'tab.unfocusedActiveBorderTop': alpha(options.colors.selectionBackground, 80),
             // 'tab.activeBorder': alpha(options.colors.selectionBackground, 80),
             // 'tab.unfocusedActiveBorder': alpha(options.colors.selectionBackground, 80),
@@ -164,6 +165,7 @@ export function createTheme(options: ThemeOptions) {
             'editorIndentGuide.activeBackground': alpha(options.colors.brightWhite, 30),
             'editorWhitespace.foreground': alpha(options.colors.brightWhite, 20),
             'editorCursor.foreground': options.colors.foreground,
+            'editorHoverWidget.statusBarBackground': options.colors.background,
 
             'editor.findMatchBackground': alpha(options.colors.brightYellow, 22),
             'editor.findMatchHighlightBackground': alpha(options.colors.brightYellow, 44),
@@ -275,7 +277,7 @@ export function createTheme(options: ThemeOptions) {
         semanticHighlighting: true,
         semanticTokenColors: {
             namespace: options.colors.brightCyan,
-            property: tokenColors.properties,
+            property: options.tokenColors.properties,
             interface: options.colors.brightCyan,
             type: options.colors.brightCyan,
             class: options.colors.brightCyan,
@@ -288,7 +290,7 @@ export function createTheme(options: ThemeOptions) {
                     'string.comment',
                 ],
                 settings: {
-                    foreground: tokenColors.comment,
+                    foreground: options.tokenColors.comment,
                 },
             },
             {
@@ -315,7 +317,7 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.string.end.html.vue',
                 ],
                 settings: {
-                    foreground: tokenColors.delimiters,
+                    foreground: options.tokenColors.delimiters,
                 },
             },
             {
@@ -326,19 +328,19 @@ export function createTheme(options: ThemeOptions) {
                     'meta.definition.variable',
                 ],
                 settings: {
-                    foreground: tokenColors.constants,
+                    foreground: options.tokenColors.constants,
                 },
             },
             {
                 scope: ['entity', 'entity.name'],
                 settings: {
-                    foreground: tokenColors.entities,
+                    foreground: options.tokenColors.entities,
                 },
             },
             {
                 scope: 'variable.parameter.function',
                 settings: {
-                    foreground: tokenColors.params,
+                    foreground: options.tokenColors.params,
                 },
             },
             {
@@ -353,13 +355,13 @@ export function createTheme(options: ThemeOptions) {
                     'tag.html',
                 ],
                 settings: {
-                    foreground: tokenColors.tags,
+                    foreground: options.tokenColors.tags,
                 },
             },
             {
                 scope: 'entity.name.function',
                 settings: {
-                    foreground: tokenColors.entities,
+                    foreground: options.tokenColors.entities,
                 },
             },
             {
@@ -369,7 +371,7 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.template-expression',
                 ],
                 settings: {
-                    foreground: tokenColors.keywords,
+                    foreground: options.tokenColors.keywords,
                 },
             },
             {
@@ -382,7 +384,7 @@ export function createTheme(options: ThemeOptions) {
                     'constant.language.import-export-all.ts',
                 ],
                 settings: {
-                    foreground: tokenColors.storage,
+                    foreground: options.tokenColors.storage,
                 },
             },
             {
@@ -391,7 +393,7 @@ export function createTheme(options: ThemeOptions) {
                     'storage.modifier.package',
                 ],
                 settings: {
-                    foreground: tokenColors.htmlText,
+                    foreground: options.tokenColors.htmlText,
                 },
             },
             {
@@ -417,7 +419,7 @@ export function createTheme(options: ThemeOptions) {
                     'attribute.value',
                 ],
                 settings: {
-                    foreground: tokenColors.strings,
+                    foreground: options.tokenColors.strings,
                 },
             },
             {
@@ -426,13 +428,13 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.support.type.property-name',
                 ],
                 settings: {
-                    foreground: tokenColors.strings,
+                    foreground: options.tokenColors.strings,
                 },
             },
             {
                 scope: 'support',
                 settings: {
-                    foreground: tokenColors.support,
+                    foreground: options.tokenColors.support,
                 },
             },
             {
@@ -444,7 +446,7 @@ export function createTheme(options: ThemeOptions) {
                     'attribute.name',
                 ],
                 settings: {
-                    foreground: tokenColors.properties,
+                    foreground: options.tokenColors.properties,
                 },
             },
             {
@@ -453,7 +455,7 @@ export function createTheme(options: ThemeOptions) {
                     'invalid.deprecated.entity.other.attribute-name.html',
                 ],
                 settings: {
-                    foreground: tokenColors.attributes,
+                    foreground: options.tokenColors.attributes,
                 },
             },
             {
@@ -462,7 +464,7 @@ export function createTheme(options: ThemeOptions) {
                     'identifier',
                 ],
                 settings: {
-                    foreground: tokenColors.variables,
+                    foreground: options.tokenColors.variables,
                 },
             },
             {
@@ -471,7 +473,7 @@ export function createTheme(options: ThemeOptions) {
                     'entity.name.type',
                 ],
                 settings: {
-                    foreground: tokenColors.types,
+                    foreground: options.tokenColors.types,
                 },
             },
             {
@@ -485,7 +487,7 @@ export function createTheme(options: ThemeOptions) {
             {
                 scope: 'namespace',
                 settings: {
-                    foreground: tokenColors.namespaces,
+                    foreground: options.tokenColors.namespaces,
                 },
             },
             {
@@ -495,42 +497,42 @@ export function createTheme(options: ThemeOptions) {
                     'meta.var.expr.ts',
                 ],
                 settings: {
-                    foreground: tokenColors.operators,
+                    foreground: options.tokenColors.operators,
                 },
             },
             {
                 scope: 'invalid.broken',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: tokenColors.errors,
+                    foreground: options.tokenColors.errors,
                 },
             },
             {
                 scope: 'invalid.deprecated',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: tokenColors.errors,
+                    foreground: options.tokenColors.errors,
                 },
             },
             {
                 scope: 'invalid.illegal',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: tokenColors.errors,
+                    foreground: options.tokenColors.errors,
                 },
             },
             {
                 scope: 'invalid.unimplemented',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: tokenColors.errors,
+                    foreground: options.tokenColors.errors,
                 },
             },
             {
                 scope: 'carriage-return',
                 settings: {
                     fontStyle: 'italic underline',
-                    background: tokenColors.errors,
+                    background: options.tokenColors.errors,
                     foreground: '',
                     content: '^M',
                 },
@@ -538,13 +540,13 @@ export function createTheme(options: ThemeOptions) {
             {
                 scope: 'message.error',
                 settings: {
-                    foreground: tokenColors.errors,
+                    foreground: options.tokenColors.errors,
                 },
             },
             {
                 scope: 'string variable',
                 settings: {
-                    foreground: tokenColors.strings,
+                    foreground: options.tokenColors.strings,
                 },
             },
             {
@@ -553,7 +555,7 @@ export function createTheme(options: ThemeOptions) {
                     'string.regexp',
                 ],
                 settings: {
-                    foreground: tokenColors.regex,
+                    foreground: options.tokenColors.regex,
                 },
             },
             {
@@ -564,13 +566,13 @@ export function createTheme(options: ThemeOptions) {
                     'string.regexp string.regexp.arbitrary-repitition',
                 ],
                 settings: {
-                    foreground: tokenColors.regexSpecial,
+                    foreground: options.tokenColors.regexSpecial,
                 },
             },
             {
                 scope: 'string.regexp constant.character.escape',
                 settings: {
-                    foreground: tokenColors.regexEscape,
+                    foreground: options.tokenColors.regexEscape,
                 },
             },
             {
@@ -578,7 +580,7 @@ export function createTheme(options: ThemeOptions) {
                     'support.constant',
                 ],
                 settings: {
-                    foreground: tokenColors.constants,
+                    foreground: options.tokenColors.constants,
                 },
             },
             {
@@ -588,7 +590,7 @@ export function createTheme(options: ThemeOptions) {
                     'number',
                 ],
                 settings: {
-                    foreground: tokenColors.numbers,
+                    foreground: options.tokenColors.numbers,
                 },
             },
             {
@@ -596,7 +598,7 @@ export function createTheme(options: ThemeOptions) {
                     'keyword.other.unit',
                 ],
                 settings: {
-                    foreground: tokenColors.units,
+                    foreground: options.tokenColors.units,
                 },
             },
             {
@@ -605,52 +607,52 @@ export function createTheme(options: ThemeOptions) {
                     'constant.language',
                 ],
                 settings: {
-                    foreground: tokenColors.booleans,
+                    foreground: options.tokenColors.booleans,
                 },
             },
             {
                 scope: 'meta.module-reference',
                 settings: {
-                    foreground: tokenColors.modules,
+                    foreground: options.tokenColors.modules,
                 },
             },
             {
                 scope: 'punctuation.definition.list.begin.markdown',
                 settings: {
-                    foreground: tokenColors.markdownList,
+                    foreground: options.tokenColors.markdownList,
                 },
             },
             {
                 scope: ['markup.heading', 'markup.heading entity.name'],
                 settings: {
                     fontStyle: 'bold',
-                    foreground: tokenColors.headings,
+                    foreground: options.tokenColors.headings,
                 },
             },
             {
                 scope: 'markup.quote',
                 settings: {
-                    foreground: tokenColors.quotes,
+                    foreground: options.tokenColors.quotes,
                 },
             },
             {
                 scope: 'markup.italic',
                 settings: {
                     fontStyle: 'italic',
-                    foreground: tokenColors.htmlText,
+                    foreground: options.tokenColors.htmlText,
                 },
             },
             {
                 scope: 'markup.bold',
                 settings: {
                     fontStyle: 'bold',
-                    foreground: tokenColors.htmlText,
+                    foreground: options.tokenColors.htmlText,
                 },
             },
             {
                 scope: 'markup.raw',
                 settings: {
-                    foreground: tokenColors.modules,
+                    foreground: options.tokenColors.modules,
                 },
             },
             {
@@ -660,8 +662,8 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.deleted',
                 ],
                 settings: {
-                    background: tokenColors.deletedBg,
-                    foreground: tokenColors.deleted,
+                    background: options.tokenColors.deletedBg,
+                    foreground: options.tokenColors.deleted,
                 },
             },
             {
@@ -671,48 +673,48 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.inserted',
                 ],
                 settings: {
-                    background: tokenColors.insertedBg,
-                    foreground: tokenColors.inserted,
+                    background: options.tokenColors.insertedBg,
+                    foreground: options.tokenColors.inserted,
                 },
             },
             {
                 scope: ['markup.changed', 'punctuation.definition.changed'],
                 settings: {
-                    background: tokenColors.changedBg,
-                    foreground: tokenColors.changed,
+                    background: options.tokenColors.changedBg,
+                    foreground: options.tokenColors.changed,
                 },
             },
             {
                 scope: ['markup.ignored', 'markup.untracked'],
                 settings: {
-                    foreground: tokenColors.ignored,
-                    background: tokenColors.ignoredBg,
+                    foreground: options.tokenColors.ignored,
+                    background: options.tokenColors.ignoredBg,
                 },
             },
             {
                 scope: 'meta.diff.range',
                 settings: {
-                    foreground: tokenColors.diffRange,
+                    foreground: options.tokenColors.diffRange,
                     fontStyle: 'bold',
                 },
             },
             {
                 scope: 'meta.diff.header',
                 settings: {
-                    foreground: tokenColors.diffHeader,
+                    foreground: options.tokenColors.diffHeader,
                 },
             },
             {
                 scope: 'meta.separator',
                 settings: {
                     fontStyle: 'bold',
-                    foreground: tokenColors.diffHeader,
+                    foreground: options.tokenColors.diffHeader,
                 },
             },
             {
                 scope: 'meta.output',
                 settings: {
-                    foreground: tokenColors.diffHeader,
+                    foreground: options.tokenColors.diffHeader,
                 },
             },
             {
@@ -725,13 +727,13 @@ export function createTheme(options: ThemeOptions) {
                     'brackethighlighter.quote',
                 ],
                 settings: {
-                    foreground: tokenColors.brackets,
+                    foreground: options.tokenColors.brackets,
                 },
             },
             {
                 scope: 'brackethighlighter.unmatched',
                 settings: {
-                    foreground: tokenColors.unmatchedBracket,
+                    foreground: options.tokenColors.unmatchedBracket,
                 },
             },
             {
@@ -742,7 +744,7 @@ export function createTheme(options: ThemeOptions) {
                     'punctuation.definition.string.end.markdown',
                 ],
                 settings: {
-                    foreground: tokenColors.links,
+                    foreground: options.tokenColors.links,
                 },
             },
             {
@@ -751,7 +753,7 @@ export function createTheme(options: ThemeOptions) {
                     'markup.underline.link.image.markdown',
                 ],
                 settings: {
-                    foreground: tokenColors.brackets,
+                    foreground: options.tokenColors.brackets,
                     fontStyle: 'underline',
                 },
             },
@@ -760,7 +762,7 @@ export function createTheme(options: ThemeOptions) {
                     'type.identifier',
                 ],
                 settings: {
-                    foreground: tokenColors.types,
+                    foreground: options.tokenColors.types,
                 },
             },
             {
@@ -777,7 +779,7 @@ export function createTheme(options: ThemeOptions) {
                     'entity.other.attribute-name.html.vue',
                 ],
                 settings: {
-                    foreground: tokenColors.entities,
+                    foreground: options.tokenColors.entities,
                 },
             },
             {
