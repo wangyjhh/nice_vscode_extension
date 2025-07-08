@@ -2,8 +2,8 @@
     "publisher": "wangyjhh",
     "name": "nice-vscode-extension",
     "displayName": "nice_vscode_extension",
-    "version": "0.9.0",
-    "description": "my first vscode extension",
+    "version": "0.9.1",
+    "description": "    ",
     "repository": {
         "url": "https://github.com/wangyjhh/nice_vscode_extension.git"
     },
